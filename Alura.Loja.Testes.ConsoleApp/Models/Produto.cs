@@ -1,6 +1,6 @@
-﻿namespace Alura.Loja.Testes.ConsoleApp
+﻿namespace Alura.Loja.Testes.ConsoleApp.Models
 {
-    internal class Produto
+    public class Produto
     {
         public int Id { get; internal set; }
         public string Nome { get; internal set; }

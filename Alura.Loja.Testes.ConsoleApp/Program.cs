@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Alura.Loja.Testes.ConsoleApp.Data;
+using Alura.Loja.Testes.ConsoleApp.Models;
 
 namespace Alura.Loja.Testes.ConsoleApp
 {
@@ -30,18 +32,17 @@ namespace Alura.Loja.Testes.ConsoleApp
             p.Categoria = "Livros";
             p.Preco = 19.89;
 
-            using (var context = new Context())
+            using (ProdutoDAOEntity entity = new ProdutoDAOEntity())
             {
-                context.Add(p);
-                context.SaveChanges();
-            }
+                entity.Adicionar(p);
+            }                            
         }
 
         private static void ListarProdutos()
         {
-            using (var context = new Context())
+            using (ProdutoDAOEntity entity = new ProdutoDAOEntity())
             {
-                List<Produto> list = context.Produtos.ToList();
+                List<Produto> list = entity.Listar();
 
                 list.ForEach(produto => Console.WriteLine($"{produto.Id} - {produto.Nome} - {produto.Categoria}"));
             }
@@ -49,24 +50,22 @@ namespace Alura.Loja.Testes.ConsoleApp
 
         private static void DeletarProduto()
         {
-            using (var context = new Context())
+            using (ProdutoDAOEntity entity = new ProdutoDAOEntity())
             {
-                Produto produto = context.Produtos.First(prod => prod.Nome.Equals("Harry Potter e a Ordem da Fênix (Editado)"));
+                Produto produto = entity.context.Produtos.First(prod => prod.Nome.Equals("Harry Potter e a Ordem da Fênix (Editado)"));
 
-                context.Remove(produto);
-                context.SaveChanges();
+                entity.Deletar(produto);
             }
         }
 
         private static void AtualizarProduto()
         {
-            using ( var context = new Context())
+            using (ProdutoDAOEntity entity = new ProdutoDAOEntity())
             {
-                Produto produto = context.Produtos.First(prod => prod.Nome.Equals("Harry Potter e a Ordem da Fênix"));
+                Produto produto = entity.context.Produtos.First(prod => prod.Nome.Equals("Harry Potter e a Ordem da Fênix"));
                 produto.Nome = "Harry Potter e a Ordem da Fênix (Editado)";
 
-                context.Update(produto);
-                context.SaveChanges();
+                entity.Atualizar(produto);
             }
         }
     }

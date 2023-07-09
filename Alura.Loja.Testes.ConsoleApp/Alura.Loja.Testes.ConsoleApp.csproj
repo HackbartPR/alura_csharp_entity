@@ -220,9 +220,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Context.cs" />
-    <Compile Include="Produto.cs" />
-    <Compile Include="ProdutoDAO.cs" />
+    <Compile Include="Data\Context.cs" />
+    <Compile Include="Data\IProdutoDAO.cs" />
+    <Compile Include="Data\ProdutoDAOEntity.cs" />
+    <Compile Include="Models\Produto.cs" />
+    <Compile Include="Data\ProdutoDAO.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -231,7 +233,7 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="ddl-produtos.txt" />
+    <Content Include="Config\ddl-produtos.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
