@@ -12,61 +12,21 @@ namespace Alura.Loja.Testes.ConsoleApp
     {
         static void Main(string[] args)
         {
-            GravarUsandoEntity();
-            
-            Console.WriteLine("Produto Salvo no Banco de Dados:\n");
-            ListarProdutos();
-
-            Console.WriteLine("\nAlterando Nome do Produto Salvo:\n");
-            AtualizarProduto();
-            ListarProdutos();
-
-            Console.WriteLine("\nDeletando Produto Salvo:\n");
-            DeletarProduto();            
-        }
-
-        private static void GravarUsandoEntity()
-        {
-            Produto p = new Produto();
-            p.Nome = "Harry Potter e a Ordem da Fênix";
-            p.Categoria = "Livros";
-            p.Preco = 19.89;
-
-            using (ProdutoDAOEntity entity = new ProdutoDAOEntity())
+            Produto pao = new Produto()
             {
-                entity.Adicionar(p);
-            }                            
-        }
+                Nome = "Pão Francês",
+                PrecoUnitario = 0.40,
+                Categoria = "Padaria",
+                Unidade = "UND"
+            };
 
-        private static void ListarProdutos()
-        {
-            using (ProdutoDAOEntity entity = new ProdutoDAOEntity())
+            Compra compra = new Compra(produto: pao, quantidade: 5);
+
+            using(var context = new Context())
             {
-                List<Produto> list = entity.Listar();
-
-                list.ForEach(produto => Console.WriteLine($"{produto.Id} - {produto.Nome} - {produto.Categoria}"));
+                context.Compras.Add(compra);
+                context.SaveChanges();
             }
-        }
-
-        private static void DeletarProduto()
-        {
-            using (ProdutoDAOEntity entity = new ProdutoDAOEntity())
-            {
-                Produto produto = entity.context.Produtos.First(prod => prod.Nome.Equals("Harry Potter e a Ordem da Fênix (Editado)"));
-
-                entity.Deletar(produto);
-            }
-        }
-
-        private static void AtualizarProduto()
-        {
-            using (ProdutoDAOEntity entity = new ProdutoDAOEntity())
-            {
-                Produto produto = entity.context.Produtos.First(prod => prod.Nome.Equals("Harry Potter e a Ordem da Fênix"));
-                produto.Nome = "Harry Potter e a Ordem da Fênix (Editado)";
-
-                entity.Atualizar(produto);
-            }
-        }
+        }       
     }
 }

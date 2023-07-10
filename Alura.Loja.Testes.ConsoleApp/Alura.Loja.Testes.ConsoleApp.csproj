@@ -254,6 +254,10 @@
     <Compile Include="Migrations\20230710225652_CreateProdutos.designer.cs">
       <DependentUpon>20230710225652_CreateProdutos.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\20230710233908_CreateCompras.cs" />
+    <Compile Include="Migrations\20230710233908_CreateCompras.designer.cs">
+      <DependentUpon>20230710233908_CreateCompras.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\ContextModelSnapshot.cs" />
     <Compile Include="Models\Compra.cs" />
     <Compile Include="Models\Produto.cs" />
