@@ -1,4 +1,6 @@
-﻿namespace Alura.Loja.Testes.ConsoleApp.Models
+﻿using System.Collections.Generic;
+
+namespace Alura.Loja.Testes.ConsoleApp.Models
 {
     public class Produto
     {
@@ -7,5 +9,8 @@
         public string Categoria { get; internal set; }
         public double PrecoUnitario { get; internal set; }
         public string Unidade { get; internal set; }
+
+        public ICollection<Compra> Compras { get; set; }
+        public ICollection<PromocaoProduto> Promocoes { get; set; }
     }
 }

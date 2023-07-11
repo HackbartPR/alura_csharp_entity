@@ -250,17 +250,15 @@
     <Compile Include="Data\Context.cs" />
     <Compile Include="Data\IProdutoDAO.cs" />
     <Compile Include="Data\ProdutoDAOEntity.cs" />
-    <Compile Include="Migrations\20230710225652_CreateProdutos.cs" />
-    <Compile Include="Migrations\20230710225652_CreateProdutos.designer.cs">
-      <DependentUpon>20230710225652_CreateProdutos.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\20230710233908_CreateCompras.cs" />
-    <Compile Include="Migrations\20230710233908_CreateCompras.designer.cs">
-      <DependentUpon>20230710233908_CreateCompras.cs</DependentUpon>
+    <Compile Include="Migrations\20230711003637_Initial.cs" />
+    <Compile Include="Migrations\20230711003637_Initial.designer.cs">
+      <DependentUpon>20230711003637_Initial.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\ContextModelSnapshot.cs" />
     <Compile Include="Models\Compra.cs" />
     <Compile Include="Models\Produto.cs" />
+    <Compile Include="Models\Promocao.cs" />
+    <Compile Include="Models\PromocaoProduto.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -271,5 +269,6 @@
   <ItemGroup>
     <Content Include="Config\ddl-produtos.txt" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
