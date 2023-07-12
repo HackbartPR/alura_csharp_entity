@@ -14,5 +14,15 @@ namespace Alura.Loja.Testes.ConsoleApp.Models
         public DateTime DataFim { get; set; }
 
         public ICollection<PromocaoProduto> Produtos { get; set; }
+
+        public Promocao() 
+        {
+            this.Produtos = new List<PromocaoProduto>();
+        }
+
+        public void IncluirProdutos(Produto produto)
+        {
+            this.Produtos.Add( new PromocaoProduto() { Produto = produto });
+        }
     }
 }

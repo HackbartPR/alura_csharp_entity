@@ -20,11 +20,36 @@ namespace Alura.Loja.Testes.ConsoleApp
                 Unidade = "UND"
             };
 
-            Compra compra = new Compra(produto: pao, quantidade: 5);
-
-            using(var context = new Context())
+            Produto sabonete = new Produto()
             {
-                context.Compras.Add(compra);
+                Nome = "Sabonete",
+                PrecoUnitario = 3.40,
+                Categoria = "Higiêne",
+                Unidade = "UND"
+            };
+
+            Produto cereal = new Produto()
+            {
+                Nome = "Cereal",
+                PrecoUnitario = 10.00,
+                Categoria = "Café da Manhã",
+                Unidade = "Gramas"
+            };
+
+            Promocao promocao = new Promocao()
+            {
+                Nome = "Dia das Mães",
+                DataInicio = DateTime.Now,
+                DataFim = DateTime.Now.AddMonths(2),                
+            };
+
+            promocao.IncluirProdutos(pao);
+            promocao.IncluirProdutos(sabonete);
+            promocao.IncluirProdutos(cereal);
+
+            using (var context = new Context())
+            {
+                context.Promocoes.Add(promocao);
                 context.SaveChanges();
             }
         }       

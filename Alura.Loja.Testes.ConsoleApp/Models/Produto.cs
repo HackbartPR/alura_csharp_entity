@@ -12,5 +12,11 @@ namespace Alura.Loja.Testes.ConsoleApp.Models
 
         public ICollection<Compra> Compras { get; set; }
         public ICollection<PromocaoProduto> Promocoes { get; set; }
+
+        public Produto() 
+        {
+            this.Compras = new List<Compra>();
+            this.Promocoes = new List<PromocaoProduto>();
+        }
     }
 }
