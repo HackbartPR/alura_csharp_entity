@@ -254,8 +254,14 @@
     <Compile Include="Migrations\20230711003637_Initial.designer.cs">
       <DependentUpon>20230711003637_Initial.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\20230712224147_Cliente.cs" />
+    <Compile Include="Migrations\20230712224147_Cliente.designer.cs">
+      <DependentUpon>20230712224147_Cliente.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\ContextModelSnapshot.cs" />
+    <Compile Include="Models\Cliente.cs" />
     <Compile Include="Models\Compra.cs" />
+    <Compile Include="Models\Endereco.cs" />
     <Compile Include="Models\Produto.cs" />
     <Compile Include="Models\Promocao.cs" />
     <Compile Include="Models\PromocaoProduto.cs" />

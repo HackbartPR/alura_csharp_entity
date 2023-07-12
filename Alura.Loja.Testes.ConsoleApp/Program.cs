@@ -12,6 +12,27 @@ namespace Alura.Loja.Testes.ConsoleApp
     {
         static void Main(string[] args)
         {
+            Cliente cliente = new Cliente() 
+            {
+                Nome = "Carlos",
+                Endereco = new Endereco()
+                {
+                    Numero = 1,
+                    Logradouro = "Rua Sem Nome",
+                    Bairro = "Centro",
+                    Cidade = "Toledo"                    
+                }
+            };
+
+            using(var context = new Context())
+            {
+                context.Clientes.Add(cliente);
+                context.SaveChanges();
+            }
+        }
+        
+        public static void RelacionamentoManyToMany()
+        {
             Produto pao = new Produto()
             {
                 Nome = "Pão Francês",
@@ -40,7 +61,7 @@ namespace Alura.Loja.Testes.ConsoleApp
             {
                 Nome = "Dia das Mães",
                 DataInicio = DateTime.Now,
-                DataFim = DateTime.Now.AddMonths(2),                
+                DataFim = DateTime.Now.AddMonths(2),
             };
 
             promocao.IncluirProdutos(pao);
@@ -52,6 +73,6 @@ namespace Alura.Loja.Testes.ConsoleApp
                 context.Promocoes.Add(promocao);
                 context.SaveChanges();
             }
-        }       
+        }
     }
 }

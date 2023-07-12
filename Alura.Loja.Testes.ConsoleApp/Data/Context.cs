@@ -8,6 +8,8 @@ namespace Alura.Loja.Testes.ConsoleApp.Data
         public DbSet<Produto> Produtos { get; set; }
         public DbSet<Compra> Compras { get; set; }
         public DbSet<Promocao> Promocoes { get; set; }
+        public DbSet<Cliente> Clientes { get; set; }
+        public DbSet<Endereco> Enderecos { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
